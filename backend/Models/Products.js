@@ -7,7 +7,8 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     category: {
-      type: Array,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
       required: true,
     },
     description: {
@@ -17,7 +18,22 @@ const productSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: true,
+      default: 0,
     },
+
+    image: {
+      type: String,
+      required: true,
+      default: ""
+    },
+
+    images:String,
+
+    countInStock: {
+      type: Number,
+      required: true,
+      default: 0,
+    }
   },
   {
     timestamps: true, 
